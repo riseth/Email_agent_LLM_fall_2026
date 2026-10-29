@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Enter Email Message</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 700px;
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+        textarea {
+            width: 100%;
+            height: 250px;
+            font-family: monospace;
+            font-size: 14px;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+        button {
+            margin-top: 15px;
+            padding: 10px 24px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        p.hint {
+            color: #555;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Enter Email Message</h1>
+    <p class="hint">
+        Type or paste an email message, e.g.:<br>
+        <code>Hello Foo, what is my order status? Regards, Bryan</code>
+    </p>
+    <form action="{% url 'result' %}" method="post">
+        {% csrf_token %}
+        <textarea name="email_message" placeholder="Hello Foo, what is my order status? Regards, Bryan"></textarea>
+        <br>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>

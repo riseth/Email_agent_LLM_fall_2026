@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Email Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 700px;
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 20px;
+        }
+        td, th {
+            border: 1px solid #ccc;
+            padding: 10px 14px;
+            text-align: left;
+        }
+        a {
+            display: inline-block;
+            margin-top: 25px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Email Details</h1>
+    <table>
+        <tr>
+            <th>Sender's Name</th>
+            <td>{{ sender_name }}</td>
+        </tr>
+        <tr>
+            <th>Receiver's Name</th>
+            <td>{{ receiver_name }}</td>
+        </tr>
+        <tr>
+            <th>Classification</th>
+            <td>{{ classification }}</td>
+        </tr>
+        {% if reason %}
+        <tr>
+            <th>Reason</th>
+            <td>{{ reason }}</td>
+        </tr>
+        {% endif %}
+        {% if method %}
+        <tr>
+            <th>Classified by</th>
+            <td>{{ method }}</td>
+        </tr>
+        {% endif %}
+    </table>
+    <a href="{% url 'index' %}">&larr; Submit another message</a>
+</body>
+</html>
